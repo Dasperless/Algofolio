@@ -24,9 +24,17 @@ li, a, button{
 
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     padding: 30px 10%;
+}
+
+@media(min-width:768px){
+    header{
+        display: grid;
+        grid: 1rem;
+        align-items: center;
+    }
 }
 .logo{
     cursor: pointer;
@@ -57,4 +65,21 @@ button{
 
 button:hover {
     background-color: var(--claros);
+}
+
+/* Visualizer */
+.main{
+    display: flex;
+    gap: 2rem;
+    border-radius: 20px;
+    width: 80%;
+    margin: 0 auto;
+    height: 200px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--claros);
+}
+
+.main__visualizer{
+    color: #ffffff;
 }
