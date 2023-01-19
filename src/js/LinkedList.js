@@ -46,3 +46,7 @@ while(aux.next != null){
     console.log(aux);
     aux = aux.next;
 }
+
+
+var dot = document.getElementsByClassName("dot");
+// dot.InnerHTML() = 
