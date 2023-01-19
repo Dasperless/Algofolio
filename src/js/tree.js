@@ -29,3 +29,16 @@ class Tree{
 	}
 
 }
+let currentValue = null;
+let tree = new Tree();
+
+function getInputValue(){
+	currentValue = document.getElementById("input").value;
+	currentValue = parseInt(currentValue);
+}
+
+function insertValue(){
+	getInputValue();
+	tree.insert(currentValue);
+}
+var value = currentValue;
