@@ -1,17 +1,18 @@
 class Node {
     constructor(value){
-        this.vale = value;
+        this.value = value;
         this.next = null;
     }
 }
 
 class LinkedList{
     constructor(){
-        this.head = null;
+        this.head = new Node(0);
     }
 
     insertNode(value){
         this.head = new Node(value);
+        console.log(`Node ${value} was added succesfully`);
     }
 
     append(value){
@@ -31,3 +32,5 @@ class LinkedList{
         aux.next = new_node;
     }
 }
+
+export default LinkedList;

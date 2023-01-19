@@ -14,6 +14,8 @@
 
 </head>
 <body>
+    <script src="../js/LinkedList.js"></script>
+    <script src="../js/main.js"></script>
     <!-- Navbar -->
     <header>
         <nav>
@@ -26,24 +28,42 @@
         </nav>
         <!-- <a class="cta" href="#"><button>Contact</button></a> -->
     </header>    
-
-    <div class="main"> 
-        <div class="main__visualizer">
-            <form action="/action_page.php">
-                <label for="fname">First name:</label>
-                <input type="text" id="fname" name="fname"><br><br>
-                <input type="submit" value="Submit">
-              </form> 
-        </div>
-        <div class="main__visualizer">
-            <p>Add</p>
-            <input>
-        </div>
-        <div class="main__visualizer">
-            <p>Hola</p>
-            <input>
-        </div>
-    </div>
     
+
+        <div class="visualization">
+            <span class="dot"></span><i class="arrow right"></i>
+            <span class="dot"></span><i class="arrow right"></i>
+        </div>
+        <div class="main"> 
+            
+            <div class="main__visualizer">
+                <form>
+                    <label for = "anode">Append node: </label>
+                    <input type="text" id="anode" name="anode" placeholder="Value"><br><br>
+                    
+                    <button>Go</button>
+                </form>
+                
+            </div>
+            <div class="main__visualizer">
+                <form>
+                    <label for = "anode">Insert index: </label>
+                    <input type="text" id="anode" name="anode" placeholder="Index"><br><br>
+                    <label for = "anode">Insert value: </label>
+                    <input type="text" id="anode" name="anode" placeholder="Value"><br><br>
+                    <button>Go</button>
+                </form>
+                
+            </div>
+            <div class="main__visualizer">
+                <form>
+                    <label for = "anode">Delete node: </label>
+                    <input type="text" id="anode" name="anode"><br><br>
+                    <button class="submit-button">Go</button>
+                </form>
+                
+            </div>
+        </div>
+        
 </body>
 </html>
