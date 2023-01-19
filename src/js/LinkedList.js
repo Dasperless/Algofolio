@@ -1,13 +1,13 @@
-class Node {
+export class Node {
     constructor(value){
         this.value = value;
         this.next = null;
     }
 }
 
-class LinkedList{
-    constructor(){
-        this.head = new Node(0);
+export class LinkedList{
+    constructor(value){
+        this.head = new Node(value);
     }
 
     insertNode(value){
@@ -22,7 +22,6 @@ class LinkedList{
         }
     
         new_node.next = null;
-
         var aux = this.head;
 
         while(aux.next != null){
@@ -33,4 +32,17 @@ class LinkedList{
     }
 }
 
-export default LinkedList;
+// module.exports = {Node, LinkedList}
+let list = new LinkedList();
+list.insertNode(4);
+list.append(5);
+list.append(25);
+list.append(45);
+list.append(35);
+
+let aux = list.head;
+// console.log(aux);
+while(aux.next != null){
+    console.log(aux);
+    aux = aux.next;
+}
