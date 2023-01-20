@@ -40,5 +40,19 @@ function getInputValue(){
 function insertValue(){
 	getInputValue();
 	tree.insert(currentValue);
+	document.getElementById("input").value = "";
+	showNode();
 }
+
+// Muestra el nodo en el canvas
+function showNode(){
+	var canvas = document.getElementById("canvas");
+	var ctx = canvas.getContext("2d");
+	ctx.beginPath();
+	ctx.arc(100, 100, 50, 0, 2 * Math.PI);
+	ctx.stroke();
+	ctx.font = "30px Arial";
+	ctx.fillText(currentValue, 85, 110);
+}
+
 var value = currentValue;
