@@ -41,18 +41,31 @@ function insertValue(){
 	getInputValue();
 	tree.insert(currentValue);
 	document.getElementById("input").value = "";
-	showNode();
+	insertNodeCanvas();
 }
 
 // Muestra el nodo en el canvas
-function showNode(){
+function insertNodeCanvas(){
 	var canvas = document.getElementById("canvas");
 	var ctx = canvas.getContext("2d");
+	ctx.strokeStyle = "white";
+	ctx.fillStyle = "white";
+	ctx.scale(1,1);
+	var ancho = canvas.width;
+	var x = ancho/2;
+	var y = 15;
+	var radio = 10;
+	
+	// Dibuja el nodo
+	
 	ctx.beginPath();
-	ctx.arc(100, 100, 50, 0, 2 * Math.PI);
+	ctx.arc(x, y, radio, 0, 2 * Math.PI);
 	ctx.stroke();
-	ctx.font = "30px Arial";
-	ctx.fillText(currentValue, 85, 110);
+	ctx.font = "0.8em Arial";
+
+	// Muestra el valor del nodo
+	var textWidth = ctx.measureText(currentValue).width;
+	ctx.fillText(currentValue, x-(textWidth/2), y+(textWidth/2));
 }
 
 var value = currentValue;
