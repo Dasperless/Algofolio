@@ -1,3 +1,5 @@
+let nodeX = 0;
+let nodeY = 0;
 class Node{
 	constructor(value){
 		this.value = value;
@@ -18,13 +20,17 @@ class Tree{
 	insertNode(node, value){
 		if(node === null){
 			node = new Node(value);
+			
 		}
 		else if(value < node.value){
 			node.left = this.insertNode(node.left, value);
+			nodeX -= 30;
 		}
 		else if(value > node.value){
 			node.right = this.insertNode(node.right, value);
+			nodeX += 30;
 		}
+		nodeY += 20;
 		return node;
 	}
 
@@ -39,7 +45,11 @@ function getInputValue(){
 
 function insertValue(){
 	getInputValue();
-	tree.insert(currentValue);
+	if(isNaN(currentValue)){
+		alert("Ingrese un valor");
+		return;
+	}
+	let node = tree.insert(currentValue);
 	document.getElementById("input").value = "";
 	insertNodeCanvas();
 }
@@ -52,12 +62,11 @@ function insertNodeCanvas(){
 	ctx.fillStyle = "white";
 	ctx.scale(1,1);
 	var ancho = canvas.width;
-	var x = ancho/2;
-	var y = 15;
+	var x = (ancho/2 )+ nodeX;
+	var y = nodeY;
 	var radio = 10;
 	
 	// Dibuja el nodo
-	
 	ctx.beginPath();
 	ctx.arc(x, y, radio, 0, 2 * Math.PI);
 	ctx.stroke();
@@ -66,6 +75,8 @@ function insertNodeCanvas(){
 	// Muestra el valor del nodo
 	var textWidth = ctx.measureText(currentValue).width;
 	ctx.fillText(currentValue, x-(textWidth/2), y+(textWidth/2));
+	nodeX = 0;
+	nodeY = 0;
 }
 
 var value = currentValue;
