@@ -1,3 +1,5 @@
+let ParentX = 0;
+let ParentY = 0;
 let nodeX = 0;
 let nodeY = 0;
 class Node{
@@ -22,14 +24,18 @@ class Tree{
 			node = new Node(value);
 			
 		}
-		else if(value < node.value){
+		else if(value <= node.value){
 			node.left = this.insertNode(node.left, value);
+			ParentX = nodeX;
 			nodeX -= 30;
 		}
 		else if(value > node.value){
 			node.right = this.insertNode(node.right, value);
+			ParentX = nodeX;
 			nodeX += 30;
+
 		}
+		ParentY = nodeY;
 		nodeY += 20;
 		return node;
 	}
@@ -70,6 +76,13 @@ function insertNodeCanvas(){
 	ctx.beginPath();
 	ctx.arc(x, y, radio, 0, 2 * Math.PI);
 	ctx.stroke();
+
+	// Dibuja la linea
+	if(tree.root.right != null || tree.root.left != null){
+		ctx.moveTo(((ancho/2 )+ParentX), ParentY);
+		ctx.lineTo(x, y-radio);
+		ctx.stroke();
+	}
 	ctx.font = "0.8em Arial";
 
 	// Muestra el valor del nodo
