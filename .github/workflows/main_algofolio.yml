@@ -27,6 +27,8 @@ jobs:
           npm run build --if-present
           
       - run: |
+          ls
+          ls node-app 
           zip -r node-app.zip .
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
