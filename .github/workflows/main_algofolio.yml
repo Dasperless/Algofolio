@@ -54,5 +54,5 @@ jobs:
         with:
           app-name: 'algofolio'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_863B2461FF1947DA9CDBBF97F0BE8B19 }}
+          publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
           package: .
